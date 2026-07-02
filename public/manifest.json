@@ -1,0 +1,16 @@
+{
+  "short_name": "Accountability",
+  "name": "Accountability Streak Tracker",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#121214",
+  "theme_color": "#0a84ff",
+  "display": "standalone",
+  "orientation": "portrait"
+}
