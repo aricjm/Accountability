@@ -14,6 +14,7 @@ const DEFAULT_SETTINGS = {
   runStartDate: '2022-09-05', // Sept 5, 2022 (30th Birthday)
   soberStartDate: '2026-06-26', // June 26, 2026
   defaultMiles: 1.0,
+  milesOffset: 500.0,
 };
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
   // Calculations
   const soberStreak = calculateSoberStreak(logs, settings.soberStartDate);
   const runningStreak = calculateRunningStreak(logs, settings.runStartDate);
-  const totalMiles = calculateTotalMiles(logs, settings.runStartDate, settings.defaultMiles);
+  const totalMiles = calculateTotalMiles(logs, settings.runStartDate, settings.defaultMiles) + (settings.milesOffset || 0);
 
   const handleSaveLog = (date: string, log: DailyLog) => {
     setLogs((prev) => ({
@@ -136,6 +137,7 @@ function App() {
         runStartDate={settings.runStartDate}
         soberStartDate={settings.soberStartDate}
         defaultMiles={settings.defaultMiles}
+        milesOffset={settings.milesOffset || 0}
         onSaveSettings={handleSaveSettings}
         onResetData={handleResetData}
       />

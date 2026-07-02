@@ -111,7 +111,7 @@ export const LogForm: React.FC<LogFormProps> = ({ onSaveLog, logs, defaultMiles 
             <button
               type="button"
               className="miles-control-btn"
-              onClick={() => adjustMiles(-0.5)}
+              onClick={() => adjustMiles(-0.1)}
             >
               -
             </button>
@@ -128,7 +128,7 @@ export const LogForm: React.FC<LogFormProps> = ({ onSaveLog, logs, defaultMiles 
             <button
               type="button"
               className="miles-control-btn"
-              onClick={() => adjustMiles(0.5)}
+              onClick={() => adjustMiles(0.1)}
             >
               +
             </button>
