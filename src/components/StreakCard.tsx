@@ -2,7 +2,7 @@ import React from 'react';
 
 interface StreakCardProps {
   title: string;
-  icon: string;
+  icon: React.ReactNode;
   streak: number;
   startDate: string;
   extraStatName?: string;
