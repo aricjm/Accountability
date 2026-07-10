@@ -1,11 +1,28 @@
+export interface NutrientEntry {
+  amount: number;
+  label?: string;
+}
+
 export interface DailyLog {
   sober: boolean;
   ran: boolean;
   miles: number;
+  potassiumEntries?: NutrientEntry[];
+  sodiumEntries?: NutrientEntry[];
 }
 
 export interface LogsMap {
   [dateStr: string]: DailyLog;
+}
+
+export function getDailyPotassium(log: DailyLog | undefined): number {
+  if (!log?.potassiumEntries) return 0;
+  return log.potassiumEntries.reduce((sum, e) => sum + e.amount, 0);
+}
+
+export function getDailySodium(log: DailyLog | undefined): number {
+  if (!log?.sodiumEntries) return 0;
+  return log.sodiumEntries.reduce((sum, e) => sum + e.amount, 0);
 }
 
 export function parseLocalDate(dateStr: string): Date {

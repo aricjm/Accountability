@@ -6,6 +6,12 @@
   --accent-blue-hover: #409cff;
   --accent-blue-glow: rgba(10, 132, 255, 0.18);
   --accent-blue-dim: rgba(10, 132, 255, 0.1);
+  --accent-potassium: #30d158;
+  --accent-potassium-dim: rgba(48, 209, 88, 0.1);
+  --accent-potassium-glow: rgba(48, 209, 88, 0.18);
+  --accent-sodium: #ff9f0a;
+  --accent-sodium-dim: rgba(255, 159, 10, 0.1);
+  --accent-sodium-glow: rgba(255, 159, 10, 0.18);
   --text-primary: #f2f2f7;
   --text-secondary: #8e8e93;
   --border-color: #2c2c3e;
@@ -549,4 +555,316 @@ html {
   padding: 20px;
   color: var(--text-secondary);
   font-size: 14px;
+}
+
+/* Header Actions (multiple icon buttons) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.food-ref-btn {
+  color: var(--accent-potassium) !important;
+}
+
+/* ==================== */
+/* Nutrient Tracker Cards */
+/* ==================== */
+.nutrient-section {
+  margin-bottom: 24px;
+}
+
+.nutrient-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.nutrient-card {
+  padding: 16px;
+}
+
+.nutrient-card.nutrient-potassium::before {
+  background: radial-gradient(circle at 80% 20%, var(--accent-potassium-glow) 0%, transparent 60%);
+}
+
+.nutrient-card.nutrient-sodium::before {
+  background: radial-gradient(circle at 80% 20%, var(--accent-sodium-glow) 0%, transparent 60%);
+}
+
+.nutrient-card .card-icon {
+  color: var(--accent-potassium);
+}
+
+.nutrient-card.nutrient-sodium .card-icon {
+  color: var(--accent-sodium);
+}
+
+.nutrient-amount-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.nutrient-current {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.nutrient-separator {
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.nutrient-goal {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.nutrient-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.nutrient-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.nutrient-status {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.nutrient-pct {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ==================== */
+/* Nutrient Log Form Rows */
+/* ==================== */
+.nutrient-log-row {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nutrient-label-k {
+  color: var(--accent-potassium);
+}
+
+.nutrient-label-na {
+  color: var(--accent-sodium);
+}
+
+.nutrient-running-total {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.nutrient-total-k {
+  color: var(--accent-potassium);
+}
+
+.nutrient-total-na {
+  color: var(--accent-sodium);
+}
+
+.nutrient-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 6px 10px;
+  border-radius: 12px;
+  animation: slideDown 0.2s ease-out;
+}
+
+.nutrient-add-btn {
+  background: var(--accent-potassium-dim);
+  color: var(--accent-potassium);
+  border: 1px solid rgba(48, 209, 88, 0.2);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.nutrient-add-btn:active {
+  transform: scale(0.95);
+}
+
+.nutrient-add-btn.nutrient-add-na {
+  background: var(--accent-sodium-dim);
+  color: var(--accent-sodium);
+  border-color: rgba(255, 159, 10, 0.2);
+}
+
+.nutrient-entries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  animation: slideDown 0.2s ease-out;
+}
+
+.nutrient-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-potassium-dim);
+  color: var(--accent-potassium);
+  border: 1px solid rgba(48, 209, 88, 0.15);
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nutrient-chip.nutrient-chip-na {
+  background: var(--accent-sodium-dim);
+  color: var(--accent-sodium);
+  border-color: rgba(255, 159, 10, 0.15);
+}
+
+.chip-remove {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.6;
+  padding: 0 2px;
+  line-height: 1;
+}
+
+.chip-remove:hover {
+  opacity: 1;
+}
+
+/* ==================== */
+/* History Nutrient Tags */
+/* ==================== */
+.tag.tag-potassium {
+  background: var(--accent-potassium-dim);
+  color: var(--accent-potassium);
+}
+
+.tag.tag-sodium {
+  background: var(--accent-sodium-dim);
+  color: var(--accent-sodium);
+}
+
+.history-details {
+  flex-wrap: wrap;
+  row-gap: 4px;
+}
+
+/* ==================== */
+/* Food Reference Modal */
+/* ==================== */
+.food-ref-modal {
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-ref-body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 4px;
+  flex: 1;
+  min-height: 0;
+}
+
+.food-ref-tip {
+  background: var(--accent-potassium-dim);
+  border: 1px solid rgba(48, 209, 88, 0.2);
+  color: var(--text-primary);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.food-ref-tip strong {
+  color: var(--accent-potassium);
+}
+
+.food-ref-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.food-ref-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.food-ref-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.food-ref-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.food-ref-mg {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-potassium);
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.food-ref-bar-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.food-ref-bar-fill {
+  height: 100%;
+  background: var(--accent-potassium);
+  border-radius: 2px;
+  opacity: 0.5;
+  transition: width 0.3s ease;
+}
+
+/* Number input spinner removal */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }

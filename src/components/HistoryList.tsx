@@ -43,6 +43,16 @@ export const HistoryList: React.FC<HistoryListProps> = ({ logs, onDeleteLog }) =
               <span className={`tag ${log.ran ? 'tag-run' : 'tag-no-run'}`}>
                 {log.ran ? `${log.miles} mi` : 'No Run'}
               </span>
+              {(log.potassiumEntries && log.potassiumEntries.length > 0) && (
+                <span className="tag tag-potassium">
+                  K: {log.potassiumEntries.reduce((s, e) => s + e.amount, 0).toLocaleString()}mg
+                </span>
+              )}
+              {(log.sodiumEntries && log.sodiumEntries.length > 0) && (
+                <span className="tag tag-sodium">
+                  Na: {log.sodiumEntries.reduce((s, e) => s + e.amount, 0).toLocaleString()}mg
+                </span>
+              )}
               <button
                 type="button"
                 className="close-btn"
