@@ -47,7 +47,6 @@ export const FoodReferenceModal: React.FC<FoodReferenceModalProps> = ({
       <div className="modal-content food-ref-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h3 className="modal-title">
-            <span style={{ marginRight: '8px' }}>🍌</span>
             Potassium-Rich Foods
           </h3>
           <button className="close-btn" onClick={onClose}>
